@@ -52,12 +52,7 @@ function initApplication()
     // Enable Debugging
     if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
         WebView.setWebContentsDebuggingEnabled(true);
-        console.log('debugging enabled');
     }
-    else {
-        WebView.setWebContentsDebuggingEnabled(true);
-        console.log('debugging "not" enabled');
-    }    
     
    $('#set-car-position, #find-car').click(function() {
       if (checkRequirements() === false)
@@ -67,7 +62,7 @@ function initApplication()
       }
    });
    $(document).on('pagebeforecreate orientationchange', updateIcons);
-   $('#map-page').live(
+   $('#map-page').on(
       'pageshow',
       function()
       {
@@ -154,7 +149,7 @@ function initApplication()
          }
       }
    );
-   $('#positions-page').live(
+   $('#positions-page').on(
       'pageinit',
       function()
       {
