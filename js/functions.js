@@ -62,10 +62,14 @@ function initApplication()
       }
    });
    $(document).on('pagebeforecreate orientationchange', updateIcons);
-   $('#map-page').on(
-      'pageshow',
+   
+   $(document).delegate('#map-page', 'pageshow',
+   /*$('#map-page').on(
+      'pageshow',*/
       function()
       {
+         console.log('map page fired');
+         alert('oldschool check');
          var requestType = urlParam('requestType');
          var positionIndex = urlParam('index');
          var geolocationOptions = {
@@ -149,10 +153,12 @@ function initApplication()
          }
       }
    );
-   $('#positions-page').on(
-      'pageinit',
+   $(document).delegate('#positions-page', 'pageinit',
+   /*$('#positions-page').on(
+      'pageinit',*/
       function()
       {
+         console.log('positions page fired');
          createPositionsHistoryList('positions-list', (new Position()).getPositions());
       }
    );
