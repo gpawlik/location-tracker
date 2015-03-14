@@ -49,6 +49,16 @@ function urlParam(name)
  */
 function initApplication()
 {
+    // Enable Debugging
+    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
+        WebView.setWebContentsDebuggingEnabled(true);
+        console.log('debugging enabled');
+    }
+    else {
+        WebView.setWebContentsDebuggingEnabled(true);
+        console.log('debugging "not" enabled');
+    }    
+    
    $('#set-car-position, #find-car').click(function() {
       if (checkRequirements() === false)
       {
