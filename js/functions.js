@@ -56,6 +56,8 @@ function initApplication()
     
     console.log('i am here...');
     
+    alert('finally initialized');
+    
    $('#set-car-position, #find-car').click(function() {
       if (checkRequirements() === false)
       {
