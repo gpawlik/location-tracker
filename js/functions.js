@@ -50,9 +50,11 @@ function urlParam(name)
 function initApplication()
 {
     // Enable Debugging
-    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
+    /*if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
         WebView.setWebContentsDebuggingEnabled(true);
-    }
+    }*/
+    
+    console.log('i am here...');
     
    $('#set-car-position, #find-car').click(function() {
       if (checkRequirements() === false)
@@ -63,9 +65,9 @@ function initApplication()
    });
    $(document).on('pagebeforecreate orientationchange', updateIcons);
    
-   $(document).delegate('#map-page', 'pageshow',
-   /*$('#map-page').on(
-      'pageshow',*/
+   /*$(document).delegate('#map-page', 'pageshow',*/
+   $(document).on('pageshow', '#map-page',
+   /*$('#map-page').on('pageshow',*/
       function()
       {
          console.log('map page fired');
@@ -153,7 +155,8 @@ function initApplication()
          }
       }
    );
-   $(document).delegate('#positions-page', 'pageinit',
+   /*$(document).delegate('#positions-page', 'pageinit',*/
+   $(document).on('pageinit', '#positions-page',
    /*$('#positions-page').on(
       'pageinit',*/
       function()

@@ -21,7 +21,11 @@
      <script src="js/maps.js"></script>
      <script src="js/positions.js"></script>
      <script>
-        $(document).one('deviceready', initApplication);
+        //$(document).one('deviceready', initApplication);
+        $(function() {
+            document.addEventListener("deviceready", initApplication, true);
+        });        
+        
      </script>
   </head>
   <body>
